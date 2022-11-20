@@ -2,11 +2,11 @@ package lab6.dictionary;
 
 import java.util.HashMap;
 
-public class Dictionary {
+public class TranslateDictionary {
 
 	HashMap<String, String> dictionary;
 
-	public Dictionary() {
+	public TranslateDictionary() {
 		dictionary = new HashMap<String, String>();
 	}
 
