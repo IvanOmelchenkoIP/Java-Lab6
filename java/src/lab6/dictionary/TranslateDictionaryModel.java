@@ -12,7 +12,7 @@ public class TranslateDictionaryModel {
 		dictionary = new HashMap<String, String>();
 	}
 
-	public void addWordPare(String en, String ua) {
+	public String[] addWordPare(String en, String ua) {
 		en = en.split("\\s+")[0];
 		ua = ua.split("\\s+")[0];
 		if (dictionary.containsKey(en)) {
@@ -20,33 +20,34 @@ public class TranslateDictionaryModel {
 		} else {
 			dictionary.put(en, ua);
 		}
+		String[] pare = { en, ua };
+		return pare;
 	}
 
 	public String translate(String phrase) throws NoTranslationException {
 		String translation = "";
 		String[] words = phrase.split("\\s+");
 		for (String word : words) {
-			String translated = "";
-			if (word.matches("[+-]?\\d+(.\\d+)?") || word.matches("\\W")) {
-				translated = word;
+			if (word.matches("[^a-zA-Z]+")) {
+				translation += word + " ";
 			} else {
+				String translated = " ";
 				String first = Character.toString(word.charAt(0));
 				String last = Character.toString(word.charAt(word.length() - 1));
 				if (first.matches("\\W")) {
 					word = word.substring(1);
-					translated += first;
+					translated = first + translated;
 				}
 				if (last.matches("\\W")) {
 					word = word.substring(0, word.length() - 1);
-					translated += " " + last;
+					translated += last;
 				}
 				String translatedWord = dictionary.get(word);
 				if (translatedWord == null) {
 					throw new NoTranslationException("No translation found for word: " + word);
 				}
-				translated.replace(" ", translatedWord);
+				translation += translated.replace(" ", translatedWord) + " ";
 			}
-			translation += translated + " ";
 		}
 		return translation.substring(0, translation.length() - 1);
 	}

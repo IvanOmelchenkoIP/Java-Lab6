@@ -13,8 +13,8 @@ public class TranslateDictionaryController {
 	}
 
 	public void addWordPare(String en, String ua) {
-		model.addWordPare(en, ua);
-		view.showSuccess(TranslateDictionaryView.ADD_SUCCESS);
+		String[] pare = model.addWordPare(en, ua);
+		view.showAddSuccess(TranslateDictionaryView.ADD_SUCCESS, pare[0], pare[1]);
 	}
 
 	public void translate(String phrase) {
