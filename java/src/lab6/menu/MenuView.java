@@ -10,7 +10,7 @@ public class MenuView {
 
 	public final static String COMMAND_ERROR = "Error! Invalid command!\n\n";
 
-	public final static String EXIT = "Exiting the program...\n\n";
+	public final static String EXIT = "Exiting the program...\n";
 
 	public void showMessage(String msg) {
 		System.out.print(msg);

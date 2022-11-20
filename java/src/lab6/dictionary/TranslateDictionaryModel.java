@@ -42,7 +42,7 @@ public class TranslateDictionaryModel {
 				}
 				String translatedWord = dictionary.get(word);
 				if (translatedWord == null) {
-					throw new NoTranslationException("No translation found for word: " + word + "\n");
+					throw new NoTranslationException("No translation found for word: " + word);
 				}
 				translated.replace(" ", translatedWord);
 			}
