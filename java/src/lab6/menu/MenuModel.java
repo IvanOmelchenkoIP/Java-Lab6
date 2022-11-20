@@ -1,8 +1,6 @@
 package lab6.menu;
 
-import java.io.IOException;
-
-import lab6.dictionary.TranslateDictionary;
+import lab6.dictionary.TranslateDictionaryController;
 
 class MenuOptions {
 
@@ -13,12 +11,12 @@ class MenuOptions {
 
 public class MenuModel {
 
-	private TranslateDictionary dictionary;
-	
-	public void setControllers(TranslateDictionary dictionary) {
+	private TranslateDictionaryController dictionary;
+
+	public void setControllers(TranslateDictionaryController dictionary) {
 		this.dictionary = dictionary;
 	}
-	
+
 	public int processCommand(String command) {
 		int status;
 		switch (command) {
@@ -30,19 +28,11 @@ public class MenuModel {
 		return status;
 	}
 
-	public void tagsByAlphabet(String en, String ua) throws IOException {
-		try {
-			dictionary.add(en, ua); 
-		} catch (IOException exception) {
-			throw exception;
-		}
+	public void add(String en, String ua) {
+		dictionary.add(en, ua);
 	}
 
-	public void tagsByOccurence(String phrase) throws IOException {
-		try {
-			dictionary.translate(phrase);
-		} catch (IOException exception) {
-			throw exception;
-		}
+	public void translate(String phrase) {
+		dictionary.translate(phrase);
 	}
 }

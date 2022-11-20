@@ -1,6 +1,6 @@
 package lab6.menu;
 
-import lab6.dictionary.TranslateDictionary;
+import lab6.dictionary.TranslateDictionaryController;
 import lab6.scanner.InputScanner;
 
 public class MenuController {
@@ -15,7 +15,7 @@ public class MenuController {
 		this.view = view;
 	}
 	
-	public void launch(TranslateDictionary dictionary, InputScanner scanner) {
+	public void launch(TranslateDictionaryController dictionary, InputScanner scanner) {
 		model.setControllers(dictionary);
 	}
 	

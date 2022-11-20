@@ -6,11 +6,7 @@ public class MenuView {
 	
 	public final static String EN_INPUT = "Input a single word in English: ";
 	public final static String UA_INPUT = "Enter a single word in Ukrainian: ";
-	public final static String ADD_SUCCESS = "A pare of words successfully added...\n\n";
-
 	public final static String PHRASE_INPUT = "Enter a phrase to translate: ";
-	public final static String TRANSLATE_SUCCESS = "Translation of a phrase:";
-	public final static String TRANSLATE_ERROR = "Translation not successful:";
 
 	public final static String COMMAND_ERROR = "Error! Invalid command!\n\n";
 

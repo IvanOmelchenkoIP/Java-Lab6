@@ -2,15 +2,19 @@ package lab6.dictionary;
 
 import java.util.HashMap;
 
-public class TranslateDictionary {
+import lab6.exceptions.NoTranslationException;
+
+public class TranslateDictionaryModel {
 
 	HashMap<String, String> dictionary;
 
-	public TranslateDictionary() {
+	public TranslateDictionaryModel() {
 		dictionary = new HashMap<String, String>();
 	}
 
 	public void add(String en, String ua) {
+		en = en.split("\\s+")[0];
+		ua = ua.split("\\s+")[0];
 		if (dictionary.containsKey(en)) {
 			dictionary.replace(en, ua);
 		} else {
@@ -18,7 +22,7 @@ public class TranslateDictionary {
 		}
 	}
 
-	public String translate(String phrase) {
+	public String translate(String phrase) throws NoTranslationException {
 		String translation = "";
 		String[] words = phrase.split("\\s+");
 		for (String word : words) {
@@ -36,7 +40,11 @@ public class TranslateDictionary {
 					word = word.substring(0, word.length() - 1);
 					translated += " " + last;
 				}
-				translated.replace(" ", dictionary.get(word));
+				String translatedWord = dictionary.get(word);
+				if (translatedWord == null) {
+					throw new NoTranslationException("No translation found for word: " + word + "\n");
+				}
+				translated.replace(" ", translatedWord);
 			}
 			translation += translated + " ";
 		}
