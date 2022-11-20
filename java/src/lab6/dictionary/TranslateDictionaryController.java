@@ -12,8 +12,8 @@ public class TranslateDictionaryController {
 		this.view = view;
 	}
 
-	public void add(String en, String ua) {
-		model.add(en, ua);
+	public void addWordPare(String en, String ua) {
+		model.addWordPare(en, ua);
 		view.showSuccess(TranslateDictionaryView.ADD_SUCCESS);
 	}
 

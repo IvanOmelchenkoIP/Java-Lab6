@@ -28,8 +28,8 @@ public class MenuModel {
 		return status;
 	}
 
-	public void add(String en, String ua) {
-		dictionary.add(en, ua);
+	public void addWordPare(String en, String ua) {
+		dictionary.addWordPare(en, ua);
 	}
 
 	public void translate(String phrase) {

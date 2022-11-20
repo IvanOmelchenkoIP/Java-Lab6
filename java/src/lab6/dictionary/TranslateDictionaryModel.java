@@ -12,7 +12,7 @@ public class TranslateDictionaryModel {
 		dictionary = new HashMap<String, String>();
 	}
 
-	public void add(String en, String ua) {
+	public void addWordPare(String en, String ua) {
 		en = en.split("\\s+")[0];
 		ua = ua.split("\\s+")[0];
 		if (dictionary.containsKey(en)) {
