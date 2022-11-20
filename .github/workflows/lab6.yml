@@ -26,5 +26,5 @@ jobs:
       - name: Test
         working-directory: ./java
         run: |
-          javac -cp "./junit/junit-platform-console-standalone-1.9.0.jar" ./src/lab6/dictionary/TranslateDictionaryModel.java ./src/lab6/tests/TranslateDictionaryTests.java
+          javac -cp "./junit/junit-platform-console-standalone-1.9.0.jar" ./src/lab6/exceptions/NoTranslationException.java ./src/lab6/dictionary/TranslateDictionaryModel.java ./src/lab6/tests/TranslateDictionaryTests.java
           java -jar ./junit/junit-platform-console-standalone-1.9.0.jar -cp "./src" --select-class lab6.tests.TranslateDictionaryTests          
